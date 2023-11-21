@@ -75,4 +75,8 @@ group :test do
   gem "selenium-webdriver"
 end
 
+<<<<<<< HEAD
 gem 'faker'
+=======
+gem "faker"
+>>>>>>> master
