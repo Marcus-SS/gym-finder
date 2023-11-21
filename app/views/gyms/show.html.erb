@@ -1,21 +1,21 @@
-<h1>Gyms#show</h1>
-
 <div>
-<h2><%= @gym.name %></h2>
-<p><%= @gym.address %></p>
-<p><%= @gym.description %></p>
-<p><%= @gym.review %></p>
-<p><%= @gym.price %></p>
+  <h2><%= @gym.name %></h2>
+  <p><%= @gym.address %></p>
+  <p><%= @gym.description %></p>
+  <p><%= @gym.price %></p>
 </div>
 
-<div>
-  <%=link_to 'Back to Gyms', gyms_path %>
+ <div>
+  <%=link_to 'Back to Gyms', user_gyms_path %>
 </div>
 
+  <div>
 <% if current_user.owner_of_gym?(@gym) %>
-<div>
-  <%= link_to 'Edit Gym', gyms_edit_path %>
-</div>
+    <%= link_to 'Edit Gym', edit_user_gym_path(@gym) %>
+<% else %>
+    <%= link_to 'Become a Member', user_membership_path %>
+  </div>
+<% end %>
 
 <p><strong>Reviews</strong></p>
 <ul class="list-group">
@@ -27,7 +27,7 @@
 
 <% if current_user && !current_user.owner_of_gym?(@gym) %>
 <div>
-  <%= link_to 'Add a Review' review_path %>
+  <%= link_to 'Add a Review', review_path %>
 
   <li class="list-group-item">
       <%= review.content %>
@@ -36,3 +36,5 @@
         data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
   </li>
 <div>
+<% end %>
+

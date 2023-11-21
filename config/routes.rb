@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'reviews/new'
+  get 'reviews/create'
+  get 'reviews/index'
+  get 'reviews/delete'
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -7,11 +11,17 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
-  resources :gym do
-    resources :membership
+  resources :users do
+    resources :gyms
   end
 
+  resources :users do
+    resources :memberships
+  end
 
+  resources :gyms do
+    resources :reviews, only: [:new, :create]
+  end
   # Defines te root path route ("/")
   # root "posts#index"
 end
