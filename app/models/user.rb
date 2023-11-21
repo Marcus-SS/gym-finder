@@ -6,4 +6,13 @@ class User < ApplicationRecord
 
   has_many :memberships
   has_many :reviews
+  has_many :gyms
+
+  def owner?
+    !gyms.empty?
+  end
+
+  def owner_of_gym?(gym)
+    gym.user == self
+  end
 end
