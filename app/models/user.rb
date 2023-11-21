@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :memberships
   has_many :reviews
   has_many :gyms
+<<<<<<< Updated upstream
 
   def owner?
     !gyms.empty?
@@ -15,4 +16,6 @@ class User < ApplicationRecord
   def owner_of_gym?(gym)
     gym.user == self
   end
+=======
+>>>>>>> Stashed changes
 end
