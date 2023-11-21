@@ -1,30 +1,11 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
 
-<%# <nav class="navbar">
-  <div class="container">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="#">
-        GymFinder
-      </a>
-    </div>
-    <div class="navbar-search">
-      <input type="text" class="search-bar" placeholder="Search...">
-      <!-- You can add a search icon or button here if needed -->
-    </div>
-    <div class="navbar-menu">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!-- Your navbar items or links go here -->
-        <ul class="navbar-nav ml-auto">
-          <!-- Example item -->
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-        </ul>
-      </div>
+<%= simple_form_for :search, method: :get do |f| %>
+  <div class="input-group mb-3">
+    <%= f.input :query, label: false, input_html: { class: 'form-control', placeholder: 'Search for a gym or location' } %>
+    <div class="input-group-append">
+      <%= button_tag(type: 'submit', class: 'btn btn-primary') do %>
+        <i class="fas fa-search"></i> Search
+      <% end %>
     </div>
   </div>
-</nav> %>
+<% end %>
