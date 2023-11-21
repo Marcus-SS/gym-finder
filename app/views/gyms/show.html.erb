@@ -1,2 +1,38 @@
 <h1>Gyms#show</h1>
-<p>Find me in app/views/gyms/show.html.erb</p>
+
+<div>
+<h2><%= @gym.name %></h2>
+<p><%= @gym.address %></p>
+<p><%= @gym.description %></p>
+<p><%= @gym.review %></p>
+<p><%= @gym.price %></p>
+</div>
+
+<div>
+  <%=link_to 'Back to Gyms', gyms_path %>
+</div>
+
+<% if current_user.owner_of_gym?(@gym) %>
+<div>
+  <%= link_to 'Edit Gym', gyms_edit_path %>
+</div>
+
+<p><strong>Reviews</strong></p>
+<ul class="list-group">
+  <% @gym.reviews.each do |review| %>
+    <li class="list-group-item"><%= review.content %></li>
+  <% end %>
+</ul>
+<br>
+
+<% if current_user && !current_user.owner_of_gym?(@gym) %>
+<div>
+  <%= link_to 'Add a Review' review_path %>
+
+  <li class="list-group-item">
+      <%= review.content %>
+      <%= link_to "Delete",
+        review_path(review),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+  </li>
+<div>
