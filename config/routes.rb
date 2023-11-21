@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   resources :users do
-    resources :gyms
+    resources :gyms, except: [:index]
   end
+
+  resources :gyms, only: [:index]
 
   resources :users do
     resources :memberships
