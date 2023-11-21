@@ -13,7 +13,7 @@ Membership.destroy_all
 Gym.destroy_all
 User.destroy_all
 
-# Seed 50 users
+puts "seed 50 users"
 users = []
 50.times do |i|
   users << User.create!(
@@ -21,19 +21,22 @@ users = []
     password: "hahahaha123"
   )
 end
+puts "finished users"
 
-# Seed 20 gyms
+puts "Seed 20 gyms"
 gyms = []
 20.times do |i|
   gyms << Gym.create!(
+    name: Faker::Company.name,
     address: "Gym #{i + 1} Street, City",
     description: "Description for Gym #{i + 1}",
     price: rand(30..100),  # Random price between 30 and 100
     user: users.sample
   )
 end
+puts "finished gyms"
 
-# Seed 10 memberships
+puts "Seed 10 memberships"
 memberships = []
 10.times do
   memberships << Membership.create!(
@@ -42,8 +45,9 @@ memberships = []
     gym: gyms.sample
   )
 end
+puts "finished memberships"
 
-# Seed 50 reviews
+puts "Seed 50 reviews"
 reviews = []
 50.times do
   reviews << Review.create!(
@@ -53,3 +57,4 @@ reviews = []
     gym: gyms.sample
   )
 end
+puts "finished reviews"
