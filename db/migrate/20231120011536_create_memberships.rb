@@ -9,4 +9,3 @@ class CreateMemberships < ActiveRecord::Migration[7.1]
     end
   end
 end
-e
