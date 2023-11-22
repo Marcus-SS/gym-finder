@@ -69,7 +69,7 @@ gym_address_bali = [[-8.649178673933879, 115.13463439507512],
   [35.687765502852294, 139.83356483666256]
   ]
 
-10.times do |i|
+9.times do |i|
   coord = gym_address_tokyo.sample
   gym_address_tokyo.delete(coord)
   gyms << Gym.create!(
@@ -85,7 +85,7 @@ gym_address_bali = [[-8.649178673933879, 115.13463439507512],
 end
 puts "finished gyms 1"
 
-10.times do |i|
+9.times do |i|
   coord = gym_address_bali.sample
   gym_address_bali.delete(coord)
   gyms << Gym.create!(
