@@ -1,0 +1,13 @@
+<div class="container">
+
+<div>
+<h1><strong>New membership<strong></h1>
+</div>
+
+<div>
+<%= simple_form_for [@gym, @membership] do |f| %>
+  <%= f.input :date, as: :date, html5: true %>
+  <%= f.submit "Register", class: "btn btn-primary" %>
+<% end %>
+</div>
+</div>
