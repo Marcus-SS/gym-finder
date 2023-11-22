@@ -25,13 +25,16 @@ puts "finished users"
 
 puts "Seed 20 gyms"
 gyms = []
+categories = ["gyms", "Strengthtraining", "weight", "weightlifting", "bodybuilding", "weights", "barbell", "dumbell", "muscles"]
+
 20.times do |i|
   gyms << Gym.create!(
     name: Faker::Company.name,
     address: "Gym #{i + 1} Street, City",
     description: "Description for Gym #{i + 1}",
     price: rand(30..100),  # Random price between 30 and 100
-    user: users.sample
+    user: users.sample,
+    preview: Faker::LoremFlickr.image(size: '300x300', search_terms: [categories[i%categories.length]])
   )
 end
 puts "finished gyms"

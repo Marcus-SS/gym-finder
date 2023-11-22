@@ -15,4 +15,6 @@ class User < ApplicationRecord
   def owner_of_gym?(gym)
     gym.user == self
   end
+
+
 end
