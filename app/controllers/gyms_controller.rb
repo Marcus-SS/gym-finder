@@ -13,7 +13,7 @@ class GymsController < ApplicationController
   end
 
   def index
-    @gyms = Gym.all
+    @gyms = Gym.where('city ILIKE ?', "%#{params[:query]}%")
   end
 
   def show

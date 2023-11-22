@@ -1,22 +1,21 @@
 <div class="container mt-5">
-  <div class="row justify-content-center mb-4">
     <h1 class="text-center">GymFinder</h1>
+        <%= form_with url: gyms_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Type a keyword"
+          %>
+        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <% end %>
+  <div class="row justify-content-center mb-4">
+
   </div>
+
   <div class="row justify-content-center">
     <div class="col-md-6 d-flex justify-content-center">
-      <%= simple_form_for :search, url: gyms_path, method: :get do |f| %>
-        <div class="input-group mb-3">
-          <%= f.input :query, label: false, input_html: { class: 'form-control rounded-pill', style: 'width: 400px;', placeholder: 'Search for a gym or location' } %>
-          <div class="input-group-append ml-3">
-            <%= button_tag(type: 'submit', class: 'btn btn-primary rounded-pill') do %>
-              <i class="fas fa-search"></i> Search
-            <% end %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div>
+
+
 
 
 

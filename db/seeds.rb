@@ -26,18 +26,80 @@ puts "finished users"
 puts "Seed 20 gyms"
 gyms = []
 categories = ["gyms", "Strengthtraining", "weight", "weightlifting", "bodybuilding", "weights", "barbell", "dumbell", "muscles"]
+gym_address_bali = [[-8.649178673933879, 115.13463439507512],
 
-20.times do |i|
+  [-8.692410224338918, 115.18072485072497],
+
+  [-8.594959734528114, 115.14868355596353],
+
+  [-8.603785775615489, 115.11023140906364],
+
+  [-8.626189417234048, 115.25442696493546],
+
+  [-8.694749866378203, 115.21254159063382],
+
+  [-8.801977649793484, 115.18232918949823],
+
+  [-8.546073330222663, 115.20498849034992],
+
+  [-8.524344025068375, 115.17614938017503],
+
+  [-8.532492659420596, 115.29013252991392]]
+
+
+  gym_address_tokyo = [
+  [35.71062788769803, 139.8266983814198],
+
+  [35.715645582195826, 139.736061178013],
+
+  [35.65094887687504, 139.7223282684059],
+
+  [35.77694742652599, 139.7916794619217],
+
+  [35.642579093655804, 139.70584877687736],
+
+  [35.708955252663806, 139.73125465965052],
+
+  [35.69557290886016, 139.6529770721442],
+
+  [35.67772629003266, 139.61452492203176],
+
+  [35.74853153244685, 139.67906959718508],
+
+  [35.687765502852294, 139.83356483666256]
+  ]
+
+10.times do |i|
+  coord = gym_address_tokyo.sample
+  gym_address_tokyo.delete(coord)
   gyms << Gym.create!(
     name: Faker::Company.name,
-    address: "Gym #{i + 1} Street, City",
+    lat: coord[0],
+    lng: coord[1],
     description: "Description for Gym #{i + 1}",
     price: rand(30..100),  # Random price between 30 and 100
     user: users.sample,
-    preview: Faker::LoremFlickr.image(size: '300x300', search_terms: [categories[i%categories.length]])
+    preview: Faker::LoremFlickr.image(size: '300x300', search_terms: [categories[i%categories.length]]),
+    city: "Tokyo"
   )
 end
-puts "finished gyms"
+puts "finished gyms 1"
+
+10.times do |i|
+  coord = gym_address_bali.sample
+  gym_address_bali.delete(coord)
+  gyms << Gym.create!(
+    name: Faker::Company.name,
+    lat: coord[0],
+    lng: coord[1],
+    description: "Description for Gym #{i + 1}",
+    price: rand(30..100),  # Random price between 30 and 100
+    user: users.sample,
+    preview: Faker::LoremFlickr.image(size: '300x300', search_terms: [categories[i%categories.length]]),
+    city: "Bali"
+  )
+end
+puts "finished gyms 2"
 
 puts "Seed 10 memberships"
 memberships = []
