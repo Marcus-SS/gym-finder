@@ -25,7 +25,7 @@ class ReviewsController < ApplicationController
   private
 
   def set_gym
-    @user = User.find(params[:gym_id])
+    @gym = Gym.find(params[:gym_id])
   end
 
   def review_params

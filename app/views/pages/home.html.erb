@@ -20,21 +20,25 @@
 
 
 <!-- In your home.html.erb -->
-<div class="container">
-  <div class="row">
-    <% @gyms.each do |gym| %>
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <!-- Top half: Image -->
-          <img src= "<%= gym.preview %>" class="card-img-top" alt="<%= gym.name %>">
-          <div class="card-body">
-            <!-- Bottom half: Gym details -->
-            <h5 class="card-title"><%= gym.name %></h5>
-            <p class="card-text"><%= gym.description %></p>
-            <p class="card-text">Average Rating: <%= gym.average_rating %></p>
+<div class="flexbox" style="display:flex">
+  <div class="container">
+    <div class="row">
+      <% @gyms.each do |gym| %>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <%= link_to gym_path(gym) do %>
+              <!-- Top half: Image -->
+              <img src="<%= gym.preview %>" class="card-img-top" alt="<%= gym.name %>">
+              <div class="card-body">
+                <!-- Bottom half: Gym details -->
+                <h5 class="card-title"><%= gym.name %></h5>
+                <p class="card-text"><%= gym.description %></p>
+                <p class="card-text">Average Rating: <%= gym.average_rating %></p>
+              </div>
+            <% end %>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
+  <div>
