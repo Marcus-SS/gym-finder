@@ -1,30 +1,40 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container mt-5">
+    <h1 class="text-center">GymFinder</h1>
+        <%= form_with url: gyms_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Type a keyword"
+          %>
+        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <% end %>
+  <div class="row justify-content-center mb-4">
 
-<%# <nav class="navbar">
-  <div class="container">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="#">
-        GymFinder
-      </a>
-    </div>
-    <div class="navbar-search">
-      <input type="text" class="search-bar" placeholder="Search...">
-      <!-- You can add a search icon or button here if needed -->
-    </div>
-    <div class="navbar-menu">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!-- Your navbar items or links go here -->
-        <ul class="navbar-nav ml-auto">
-          <!-- Example item -->
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-        </ul>
-      </div>
-    </div>
   </div>
-</nav> %>
+
+  <div class="row justify-content-center">
+    <div class="col-md-6 d-flex justify-content-center">
+
+
+
+
+
+<!-- In your home.html.erb -->
+<div class="container">
+  <div class="row">
+    <% @gyms.each do |gym| %>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <!-- Top half: Image -->
+          <img src= "<%= gym.preview %>" class="card-img-top" alt="<%= gym.name %>">
+          <div class="card-body">
+            <!-- Bottom half: Gym details -->
+            <h5 class="card-title"><%= gym.name %></h5>
+            <p class="card-text"><%= gym.description %></p>
+            <p class="card-text">Average Rating: <%= gym.average_rating %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
