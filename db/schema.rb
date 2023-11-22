@@ -10,12 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_22_024911) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_22_080330) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "gyms", force: :cascade do |t|
-    t.string "address"
     t.string "description"
     t.integer "price"
     t.bigint "user_id", null: false
@@ -24,6 +23,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_22_024911) do
     t.integer "average_rating"
     t.string "name"
     t.string "preview"
+    t.string "city"
+    t.string "lat"
+    t.string "lng"
     t.index ["user_id"], name: "index_gyms_on_user_id"
   end
 
