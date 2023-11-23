@@ -74,6 +74,7 @@ gym_address_bali = [[-8.649178673933879, 115.13463439507512],
   gym_address_tokyo.delete(coord)
   gyms << Gym.create!(
     name: Faker::Company.name,
+    address: "Gym #{i + 1} Street, Tokyo",
     lat: coord[0],
     lng: coord[1],
     description: "Description for Gym #{i + 1}",
@@ -90,6 +91,7 @@ puts "finished gyms 1"
   gym_address_bali.delete(coord)
   gyms << Gym.create!(
     name: Faker::Company.name,
+    address: "Gym #{i + 1} Street, Bali",
     lat: coord[0],
     lng: coord[1],
     description: "Description for Gym #{i + 1}",
