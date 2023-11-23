@@ -8,7 +8,7 @@ Geocoder.configure(
   # http_proxy: nil,            # HTTP proxy server (user:pass@host:port)
   # https_proxy: nil,           # HTTPS proxy server (user:pass@host:port)
   # api_key: nil,               # API key for geocoding service
-  # cache: nil,                 # cache object (must respond to #[], #[]=, and #del)
+  # cache: nil,                 # cachse object (must respond to #[], #[]=, and #del)
 
   # Exceptions that should not be rescued by default
   # (if you want to implement custom error handling);
@@ -17,7 +17,7 @@ Geocoder.configure(
 
   # Calculation options
   # units: :mi,                 # :km for kilometers or :mi for miles
-  # distances: :linear          # :spherical or :linear
+  # distances: :linear s         # :spherical or :linear
 
   # Cache configuration
   # cache_options: {
@@ -25,6 +25,6 @@ Geocoder.configure(
   #   prefix: 'geocoder:'
   # }
 
-  units: :km, # Defaults to miles (:mi)
+  units: :km # Defaults to miles (:mi)
   # [...]
 )
