@@ -3,5 +3,8 @@ class PagesController < ApplicationController
 
   def home
     @gyms = Gym.all
+    @gyms.first.get_average_rating
   end
+
+
 end
