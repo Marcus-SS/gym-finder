@@ -16,16 +16,19 @@ class GymsController < ApplicationController
   def index
     @gyms = Gym.where('city ILIKE ?', "%#{params[:query]}%")
 
+
     @markers = @gyms.geocoded.map do |gym|
       {
         lat: gym.lat,
-        lng: gym.lng
+        lng: gym.lng,
+        info_window_html: render_to_string(partial: "info_window", locals: {gym: gym}),
       }
     end
   end
 
   def show
     @gym = Gym.find(params[:id])
+    @markers = [{ lat: @gym.lat, lng: @gym.lng}]
   end
 
   def edit
