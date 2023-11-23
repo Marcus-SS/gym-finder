@@ -9,17 +9,17 @@ class MembershipsController < ApplicationController
     @membership = Membership.new(membership_params)
     @membership.gym = @gym
     @membership.user = current_user
-    if @membership.save notice: 'Membership successfully register.'
-      redirect_to dashboard_path(@memberships)
+    if @membership.save
+      redirect_to dashboard_path, notice: 'Membership successfully registered.'
     else
       render :new, status: :unprocessable_entity
     end
-  end
+  end 
 
   def destroy
     @membership = Membership.find(params[:id])
     @membership.destroy
-    redirect_to gym_path(membership.gym), status: :see_other
+    redirect_to gym_path(@membership.gym), status: :see_other
   end
 
   private
@@ -29,6 +29,6 @@ class MembershipsController < ApplicationController
   end
 
   def membership_params
-    params.require(:membership).permit(:start_date)
+    params.require(:membership).permit(:start_date, :end_date)
   end
 end

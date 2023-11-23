@@ -47,7 +47,7 @@ class GymsController < ApplicationController
   def destroy
     @gym = Gym.find(params[:id])
     @gym.destroy
-    redirect_to gyms_url, notice: 'Gym was successfully destroyed.'
+    redirect_to dashboard_path, notice: 'Gym was successfully destroyed.'
   end
 
   private

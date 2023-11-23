@@ -15,5 +15,7 @@ Rails.application.routes.draw do
   resources :memberships, only: [:destroy]
   resources :reviews, only: [:destroy]
 
+  delete 'gyms/:id', to: 'gyms#destroy', as: 'delete_gym'
+
   get '/dashboard', to: 'pages#dashboard'
 end

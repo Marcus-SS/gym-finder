@@ -24,10 +24,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_23_104146) do
     t.string "name"
     t.string "preview"
     t.string "city"
-    t.string "lat"
-    t.string "lng"
     t.float "latitude"
     t.float "longitude"
+    t.string "lat"
+    t.string "lng"
     t.string "address"
     t.index ["user_id"], name: "index_gyms_on_user_id"
   end

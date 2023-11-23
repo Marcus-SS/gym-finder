@@ -1,12 +1,8 @@
-
-
-
 <h1 style="text-align:center">Gyms in <%= params[:query] %></h1>
 
 <br>
 <br>
 
-<!-- In your home.html.erb -->
 <div class="flexbox" style="display:flex">
   <div class="container">
     <div class="row">
@@ -15,7 +11,7 @@
           <div class="card">
             <%= link_to gym_path(gym) do %>
               <!-- Top half: Image -->
-              <img src="<%= gym.preview %>" class="card-img-top" alt="<%= gym.name %>">
+              <img src="<%= gym.preview %>" class="card-img-top" alt="<%= gym.name %>" style="height: 200px; width: 100%; object-fit: cover;">
               <div class="card-body">
                 <!-- Bottom half: Gym details -->
                 <h5 class="card-title"><%= gym.name %></h5>
@@ -28,11 +24,6 @@
       <% end %>
     </div>
   </div>
-  <div>
+  <div style="width: 100%; height: 600px;" data-controller="map" data-map-markers-value="<%= @markers.to_json %>" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 </div>
-  <div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-  </div>
