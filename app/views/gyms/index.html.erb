@@ -30,7 +30,9 @@
   </div>
   <div>
 
-  <img src="https://i.ibb.co/xXQm4vD/Screenshot-2023-11-22-at-16-53-27.png" alt="">
-
+<div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   </div>
 </div>
