@@ -10,7 +10,7 @@ class MembershipsController < ApplicationController
     @membership.gym = @gym
     @membership.user = current_user
     if @membership.save
-      redirect_to gym_path(@gym)
+      redirect_to dashboard_path(@memberships)
     else
       render :new, status: :unprocessable_entity
     end
@@ -29,6 +29,6 @@ class MembershipsController < ApplicationController
   end
 
   def membership_params
-    params.require(:membership).permit(:date)
+    params.require(:membership).permit(:start_date)
   end
 end

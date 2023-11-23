@@ -10,9 +10,10 @@ Rails.application.routes.draw do
   resources :gyms do
     resources :memberships, only: [:new, :create]
     resources :reviews, only: [:new, :create]
-
   end
 
   resources :memberships, only: [:destroy]
   resources :reviews, only: [:destroy]
+
+  get '/dashboard', to: 'pages#dashboard'
 end

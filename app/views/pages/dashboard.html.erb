@@ -1,0 +1,13 @@
+<div class="container">
+  <h1><%= current_user.email %></h1>
+
+  <p><strong>My memberships</strong></p>
+  <ul class="list-group">
+    <% @memberships.each do |membership| %>
+      <li class="list-group-item">
+        <%= membership.gym.name %>: <%= membership.start_date %>
+      </li>
+    <% end %>
+  </ul>
+  <br>
+</div>
