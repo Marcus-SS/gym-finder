@@ -9,7 +9,7 @@ class MembershipsController < ApplicationController
     @membership = Membership.new(membership_params)
     @membership.gym = @gym
     @membership.user = current_user
-    if @membership.save
+    if @membership.save notice: 'Membership successfully register.'
       redirect_to dashboard_path(@memberships)
     else
       render :new, status: :unprocessable_entity
