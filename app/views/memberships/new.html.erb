@@ -1,13 +1,17 @@
 <div class="container">
 
-<div>
-<h1><strong>New membership<strong></h1>
-</div>
+  <div>
+    <h1><strong>New membership</strong></h1>
+  </div>
 
-<div>
-<%= simple_form_for [@gym, @membership] do |f| %>
-  <%= f.input :start_date, as: :date, html5: true %>
-  <%= f.submit "Register", class: "btn btn-primary" %>
-<% end %>
-</div>
+  <div>
+    <%= simple_form_for [@gym, @membership] do |f| %>
+      <%= f.input :start_date, as: :date, input_html: { min: Date.today.to_s }, html5: true %>
+      <%= f.input :end_date, as: :date, input_html: { min: Date.today.to_s }, html5: true %>
+      <%= f.submit "Register", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
+
+
 </div>

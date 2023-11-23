@@ -28,7 +28,7 @@
           <div class="card">
             <%= link_to gym_path(gym) do %>
               <!-- Top half: Image -->
-              <img src="<%= gym.preview %>" class="card-img-top" alt="<%= gym.name %>">
+              <img src="<%= gym.preview %>" class="card-img-top" alt="<%= gym.name %>" style="width: 156px; height: 156px; object-fit: cover;">
               <div class="card-body">
                 <!-- Bottom half: Gym details -->
                 <h5 class="card-title"><%= gym.name %></h5>
