@@ -6,9 +6,8 @@ class PagesController < ApplicationController
     @gyms.first.get_average_rating
   end
 
-
   def dashboard
     @memberships = current_user.memberships
+    @gyms = current_user.gyms
   end
-
 end

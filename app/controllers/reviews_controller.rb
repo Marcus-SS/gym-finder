@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.gym = @gym
     @review.user = current_user
-    if @review.save
+    if @review.save notice: 'Review was successfully added.'
       redirect_to gym_path(@gym)
     else
       render :new, status: :unprocessable_entity

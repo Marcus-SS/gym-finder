@@ -108,7 +108,7 @@ puts "Seed 10 memberships"
 memberships = []
 10.times do
   memberships << Membership.create!(
-    date: Faker::Date.between(from: 1.year.ago, to: Date.today),  # Using Faker gem for random date
+    start_date: Faker::Date.between(from: 1.year.ago, to: Date.today),  # Using Faker gem for random date
     user: users.sample,
     gym: gyms.sample
   )

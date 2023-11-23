@@ -7,6 +7,8 @@ class Gym < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
 
   def get_average_rating
+    return 0 if self.reviews.length == 0
+
     gym_average = 0
     self.reviews.each do |review|
       gym_average += review.rating
