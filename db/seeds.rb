@@ -83,6 +83,7 @@ gym_address_bali = [[-8.649178673933879, 115.13463439507512],
     preview: Faker::LoremFlickr.image(size: '300x300', search_terms: [categories[i%categories.length]]),
     city: "Tokyo"
   )
+
 end
 puts "finished gyms 1"
 

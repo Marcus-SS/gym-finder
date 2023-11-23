@@ -5,11 +5,13 @@ class GymsController < ApplicationController
 
   def create
     @gym = Gym.new(gym_params)
+
     if @gym.save
       redirect_to @gym, notice: 'Gym was successfully created.'
     else
       render :new
     end
+
   end
 
   def index
@@ -17,8 +19,8 @@ class GymsController < ApplicationController
 
     @markers = @gyms.geocoded.map do |gym|
       {
-        lat: gym.latitude,
-        lng: gym.longitude
+        lat: gym.lat,
+        lng: gym.lng
       }
     end
   end
