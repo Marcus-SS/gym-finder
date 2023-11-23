@@ -5,7 +5,6 @@
   </div>
 
   <div class="mt-4">
-    <%=link_to 'Back to Gyms', root_path %>
     <h2><%= @gym.name %></h2>
     <p><%= @gym.address %></p>
 
@@ -13,7 +12,15 @@
     <p>$<%= @gym.price %> / day</p>
   </div>
 
-
+  <div>
+  <% if current_user.owner_of_gym?(@gym) %>
+      <%= link_to 'Edit Gym', edit_gym_path(@gym) %>
+  <% else %>
+      <%= link_to 'Become a Member', new_gym_membership_path(@gym) %>
+    </div>
+  <% end %>
+<br>
+<br>
   <div>
     <p><strong>Reviews</strong></p>
       <ul class="list-group">
@@ -43,13 +50,7 @@
     </div>
   <% end %>
 
-     <div>
-  <% if current_user.owner_of_gym?(@gym) %>
-      <%= link_to 'Edit Gym', edit_gym_path(@gym) %>
-  <% else %>
-      <%= link_to 'Become a Member', new_gym_membership_path(@gym) %>
-    </div>
-  <% end %>
+
 
 
   <!-- Map container -->
