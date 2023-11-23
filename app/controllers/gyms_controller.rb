@@ -5,13 +5,12 @@ class GymsController < ApplicationController
 
   def create
     @gym = Gym.new(gym_params)
-
+    @gym.user = current_user
     if @gym.save
-      redirect_to @gym, notice: 'Gym was successfully created.'
+      redirect_to dashboard_path, notice: 'Gym was successfully created.'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
-
   end
 
   def index
@@ -51,6 +50,6 @@ class GymsController < ApplicationController
   private
 
   def gym_params
-    params.require(:gym).permit(:address, :description, :average_rating, :price)
+    params.require(:gym).permit(:name, :city, :address, :lat, :lng, :description, :average_rating, :price, :preview)
   end
 end
