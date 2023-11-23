@@ -5,15 +5,24 @@ class GymsController < ApplicationController
 
   def create
     @gym = Gym.new(gym_params)
+
     if @gym.save
       redirect_to @gym, notice: 'Gym was successfully created.'
     else
       render :new
     end
+
   end
 
   def index
     @gyms = Gym.where('city ILIKE ?', "%#{params[:query]}%")
+
+    @markers = @gyms.geocoded.map do |gym|
+      {
+        lat: gym.lat,
+        lng: gym.lng
+      }
+    end
   end
 
   def show

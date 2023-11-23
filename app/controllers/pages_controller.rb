@@ -3,9 +3,12 @@ class PagesController < ApplicationController
 
   def home
     @gyms = Gym.all
+    @gyms.first.get_average_rating
   end
+
 
   def dashboard
     @memberships = current_user.memberships
   end
+
 end
