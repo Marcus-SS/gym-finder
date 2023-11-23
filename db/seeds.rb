@@ -18,7 +18,8 @@ users = []
 50.times do |i|
   users << User.create!(
     email: "user#{i + 1}@example.com",
-    password: "hahahaha123"
+    password: "hahahaha123",
+    name: Faker::Name.name
   )
 end
 puts "finished users"
@@ -78,7 +79,7 @@ gym_address_bali = [[-8.649178673933879, 115.13463439507512],
     lat: coord[0],
     lng: coord[1],
     description: "Description for Gym #{i + 1}",
-    price: rand(30..100),  # Random price between 30 and 100
+    price: rand(3..15),  # Random price between 30 and 100
     user: users.sample,
     preview: Faker::LoremFlickr.image(size: '300x300', search_terms: [categories[i%categories.length]]),
     city: "Tokyo"
@@ -96,7 +97,7 @@ puts "finished gyms 1"
     lat: coord[0],
     lng: coord[1],
     description: "Description for Gym #{i + 1}",
-    price: rand(30..100),  # Random price between 30 and 100
+    price: rand(5..18),  # Random price between 30 and 100
     user: users.sample,
     preview: Faker::LoremFlickr.image(size: '300x300', search_terms: [categories[i%categories.length]]),
     city: "Bali"

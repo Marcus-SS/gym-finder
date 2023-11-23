@@ -7,14 +7,20 @@
 <div>
 <%= simple_form_for [@gym] do |f| %>
   <%#= f.input :images, as: :file, input_html: { multiple: true } %>
-  <%= f.input :preview, label: "Gym img url" %>
+  <%= f.input :preview, label: "Gym image URL" %>
   <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :price, label: "Price per day" %>
   <%= f.input :city %>
   <%= f.input :address %>
+  <br>
+  <br>
+  <p>In order to avoid any confusions in terms of the location of the gym please provide the exact coordenates of the gym in terms of its latitude (Lat) and longitude (Lgn) below.</p>
+  <p>If you need more information on how to find the exact coordenates of your gym please visit: <a href="https://support.google.com/maps/answer/18539?hl=en&co=GENIE.Platform%3DDesktop">this link.</a></p>
   <%= f.input :lat %>
   <%= f.input :lng %>
-  <%= f.input :description %>
-  <%= f.input :price %>
+  <br>
+  <br>
   <%= f.submit "Submit", class: "btn btn-primary" %>
 <% end %>
 </div>
