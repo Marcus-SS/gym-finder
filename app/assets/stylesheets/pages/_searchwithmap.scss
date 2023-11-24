@@ -1,0 +1,31 @@
+
+.mapsearch {
+  height: 100vh;
+  width: 50vw;
+  position: sticky;
+  top: 0;
+
+}
+
+
+.gridsearch {
+  display: grid;
+
+}
+
+.flexbox {
+  display: flex;
+}
+
+.empty {
+
+  height: 1px;
+  width: 700px;
+  background-color: white;
+
+}
+
+
+#term {
+  background-color: rgb(255, 244, 161);
+}
