@@ -14,7 +14,6 @@
 
   <div>
   <% if current_user.owner_of_gym?(@gym) %>
-      <%= link_to 'Edit Gym', edit_gym_path(@gym) %>
   <% else %>
       <%= link_to 'Become a Member', new_gym_membership_path(@gym) %>
     </div>
