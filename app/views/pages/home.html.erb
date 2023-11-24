@@ -11,24 +11,18 @@
   <div class="row justify-content-center mb-4">
 
   </div>
+ <div class="splash">
 <h1 class="text-center">Popular gyms</h1>
-
-  <div class="row justify-content-center">
-    <div class="col-md-6 d-flex justify-content-center">
-
-
-
-
+ </div>
 <!-- In your home.html.erb -->
-<div class="flexbox" style="display:flex">
-  <div class="container">
+
     <div class="row">
       <% @gyms.each do |gym| %>
-        <div class="col-md-4 mb-4">
+        <div class="col-3">
           <div class="card">
             <%= link_to gym_path(gym) do %>
               <!-- Top half: Image -->
-              <img src="<%= gym.preview %>" class="card-img-top" alt="<%= gym.name %>" style="width: 156px; height: 156px; object-fit: cover;">
+              <img src="<%= gym.preview %>" class="card-img-top w-100" alt="<%= gym.name %>" style="width: 156px; height: 156px; object-fit: cover;">
               <div class="card-body">
                 <!-- Bottom half: Gym details -->
                 <h5 class="card-title"><%= gym.name %></h5>
@@ -40,5 +34,4 @@
         </div>
       <% end %>
     </div>
-  </div>
   <div>
