@@ -1,7 +1,7 @@
 <div class="container">
 
   <div>
-    <%=link_to 'Back to Gyms', root_path %>
+    <%=link_to 'Back to Gyms', root_path, class: "btn-secondary" %>
   </div>
 
   <div class="mt-4">
@@ -15,7 +15,7 @@
   <div>
   <% if current_user.owner_of_gym?(@gym) %>
   <% else %>
-      <%= link_to 'Become a Member', new_gym_membership_path(@gym) %>
+      <%= link_to 'Become a Member', new_gym_membership_path(@gym), class: "btn-secondary" %>
     </div>
   <% end %>
 <br>
@@ -45,7 +45,7 @@
 
   <% if current_user && !current_user.owner_of_gym?(@gym) %>
     <div>
-      <%= link_to 'Add a Review', new_gym_review_path(@gym) %>
+      <%= link_to 'Add a Review', new_gym_review_path(@gym), class: "btn-secondary" %>
     </div>
   <% end %>
 
