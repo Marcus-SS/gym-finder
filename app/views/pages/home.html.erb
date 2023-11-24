@@ -1,10 +1,11 @@
 <div class="container mt-5">
     <h1 class="text-center">Search for a gym near you...</h1>
+    <br>
         <%= form_with url: gyms_path, method: :get, class: "d-flex" do %>
         <%= text_field_tag :query,
               params[:query],
               class: "form-control",
-              placeholder: "Type a keyword"
+              placeholder: "Type a city name"
           %>
         <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
       <% end %>
@@ -14,6 +15,7 @@
  <div class="splash">
 <h1 class="text-center">Popular gyms</h1>
  </div>
+ <br>
 <!-- In your home.html.erb -->
 
     <div class="row">
