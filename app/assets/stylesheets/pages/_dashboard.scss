@@ -1,0 +1,21 @@
+.list-group{
+  margin-left: 400px;
+  margin-right: 400px;
+  box-shadow: 2px 2px rgba(0,0,0,.5);
+  border: 2px solid #000000;
+  .list-group-item{
+    background-color: rgb(255, 244, 161);
+    border-radius: 2;
+    border: 1px solid #000000;
+    padding: 10px 15px;
+    &:hover{
+      background-color: rgb(130, 211, 255);
+    }
+  }
+}
+
+
+.margink {
+  margin-left: 50px;
+  font-size: 20px;
+}
