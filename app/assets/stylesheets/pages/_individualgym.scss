@@ -1,0 +1,15 @@
+.rev{
+  margin-left: 1px;
+  margin-right: 1px;
+  box-shadow: 2px 2px rgba(0,0,0,.5);
+  border: 2px solid #000000;
+  .revl {
+    background-color: rgb(255, 244, 161);
+    border-radius: 2;
+    border: 1px solid #000000;
+    padding: 10px 15px;
+    &:hover{
+      background-color: rgb(130, 211, 255);
+    }
+  }
+}

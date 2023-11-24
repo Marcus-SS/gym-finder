@@ -22,9 +22,9 @@
 <br>
   <div>
     <p><strong>Reviews</strong></p>
-      <ul class="list-group">
+      <ul class="list-group rev">
         <% @gym.reviews.each do |review| %>
-          <li class="list-group-item">
+          <li class="list-group-item revl">
             <%= review.rating %> * -
             "<%= review.content %>"
             <small><em><%= review.user.email %></em></small>
